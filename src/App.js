@@ -67,25 +67,60 @@ function App() {
   return (
     <div>
       <header>
-        <h1>Advent of Code</h1>
+        <h1 className="is-size-1">Advent of Code</h1>
       </header>
 
       <main>
-        <h2>Day 1</h2>
-        <h3>Puzzle 1</h3>
+        <h2 className="is-size-2">Day 1</h2>
+        <p><a href="https://adventofcode.com/2020/day/1">https://adventofcode.com/2020/day/1</a></p>
+
+        <h3 className="is-size-3">Puzzle 1</h3>
         <form onSubmit={doTheMagic0101}>
-          <textarea rows="15" value={value0101} onChange={updateInput0101} id="input0101" required/>
-          <button type="submit">Submit</button>
-          <input type="text" id="answer" value={answer0101} readOnly />
+          <div className="columns">
+            <div className="column">
+              <div className="field">
+                <label className="label">Input</label>
+                <div className="control">
+                  <textarea rows="15" value={value0101} onChange={updateInput0101} id="input0101" required className="textarea"/>
+                </div>
+              </div>
+              <button type="submit" className="button is-primary">Submit</button>
+            </div>
+            <div className="column">
+              <div className="field">
+                <label className="label">Answer</label>
+                <div className="control">
+                  <input type="text" id="answer0101" value={answer0101} readOnly className="input" />
+                </div>
+              </div>
+            </div>
+          </div>
         </form>
 
         <hr />
 
-        <h3>Puzzle 2</h3>
+        <h3 className="is-size-3">Puzzle 2</h3>
         <form onSubmit={doTheMagic0102}>
-          <textarea rows="15" value={value0102} onChange={updateInput0102} id="input0102" required/>
-          <button type="submit">Submit</button>
-          <input type="text" id="answer" value={answer0102} onChange={({target}) => setAnswer0102(target.value)}/>
+          <div className="columns">
+            <div className="column">
+              <div className="field">
+                <label className="label">Input</label>
+                <div className="control">
+                  <textarea rows="15" value={value0102} onChange={updateInput0102} id="input0102" required className="textarea"/>
+                </div>
+              </div>
+
+              <button type="submit" className="button is-primary">Submit</button>
+            </div>
+            <div className="column">
+              <div className="field">
+                <label className="label">Answer</label>
+                <div className="control">
+                  <input type="text" id="answer0102" value={answer0102} readOnly className="input"/>
+                </div>
+              </div>
+            </div>
+          </div>
         </form>
 
       </main>
