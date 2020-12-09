@@ -66,12 +66,39 @@ function App() {
 
   return (
     <div>
+
+      <nav className="navbar is-dark" role="navigation" aria-label="main navigation">
+        <div className="navbar-brand">
+          <div className="navbar-item">
+            <h1 className="">Advent of Code</h1>
+          </div>
+        </div>
+
+        <div className="navbar-menu">
+          <div className="navbar-start">
+            <a className="navbar-item">
+              Home
+            </a>
+
+            <a className="navbar-item">
+              2020
+            </a>
+          </div>
+        </div>
+      </nav>
       <header>
-        <h1 className="is-size-1">Advent of Code</h1>
+
       </header>
 
-      <main>
-        <h2 className="is-size-2">Day 1</h2>
+      <main className="p-4">
+        <div className="tabs">
+          <ul>
+            <li className="is-active"><a>Day 1</a></li>
+            <li><a>Day 2</a></li>
+            <li><a>Day 3</a></li>
+            <li><a>Day 4</a></li>
+          </ul>
+        </div>
         <p><a href="https://adventofcode.com/2020/day/1">https://adventofcode.com/2020/day/1</a></p>
 
         <h3 className="is-size-3">Puzzle 1</h3>
