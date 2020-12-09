@@ -208,7 +208,7 @@ const realValue = `1706
 1500
 1485`;
 
-export const Puzzle1 = () => {
+export const Day01Puzzle1 = () => {
   const id = '0101';
   const [inputValue, setInputValue] = useState('');
   const [answer, setAnswer] = useState('');

@@ -1,6 +1,6 @@
 import Navbar from "./components/navbar";
-import {Puzzle2} from "./2020/day01/puzzle2";
-import {Puzzle1} from "./2020/day01/puzzle1";
+import {Day01Puzzle1} from "./2020/day01/puzzle1";
+import {Day01Puzzle2} from "./2020/day01/puzzle2";
 
 function App() {
   return (
@@ -16,11 +16,11 @@ function App() {
 
         <p>For more information about the challenge, please visit: <a href="https://adventofcode.com/2020/day/1">https://adventofcode.com/2020/day/1</a></p>
 
-        <Puzzle1 />
+        <Day01Puzzle1 />
 
         <hr />
 
-        <Puzzle2 />
+        <Day01Puzzle2 />
 
       </main>
     </div>
