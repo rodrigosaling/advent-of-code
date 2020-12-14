@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {readLinesFrom} from "../../utils/read-lines-from";
+import { readLinesFrom } from '../../utils/read-lines-from';
 
 const testValue = `1721
 979
@@ -217,25 +217,25 @@ export const Day01Puzzle1 = () => {
   const setTestValue = (event) => {
     event.preventDefault();
     setInputValue(testValue);
-  }
+  };
 
   const setRealValue = (event) => {
     event.preventDefault();
     setInputValue(realValue);
-  }
+  };
 
   const log = (text) => {
-    setLogs((prevState) => `${prevState}\n${text}`)
-  }
+    setLogs((prevState) => `${prevState}\n${text}`);
+  };
 
   const doTheTruffleShuffle = (event) => {
     event.preventDefault();
     const input = readLinesFrom(`input${id}`);
     const numberOfLines = input.length;
 
-    for (let i = 0; i<numberOfLines-1; i++) {
+    for (let i = 0; i < numberOfLines - 1; i++) {
       const firstValue = parseInt(input[i]);
-      for (let j = i+1; j<numberOfLines; j++) {
+      for (let j = i + 1; j < numberOfLines; j++) {
         const secondValue = parseInt(input[j]);
         if (firstValue + secondValue === 2020) {
           log(`Found the values: ${firstValue} ${secondValue}`);
@@ -243,7 +243,7 @@ export const Day01Puzzle1 = () => {
         }
       }
     }
-  }
+  };
 
   return (
     <div>
@@ -254,25 +254,55 @@ export const Day01Puzzle1 = () => {
             <div className="field">
               <label className="label">Input</label>
               <div className="control">
-                <textarea rows="10" value={inputValue} onChange={({ target }) => setInputValue(target.value)} id={`input${id}`} required className="textarea is-small"/>
+                <textarea
+                  rows="10"
+                  value={inputValue}
+                  onChange={({ target }) => setInputValue(target.value)}
+                  id={`input${id}`}
+                  required
+                  className="textarea is-small"
+                />
               </div>
             </div>
 
-            <button type="button" className="button mr-2" onClick={setTestValue}>Load Test value</button>
-            <button type="button" className="button mr-2" onClick={setRealValue}>Load Real value</button>
-            <button type="submit" className="button is-primary">Do the truffle shuffle</button>
+            <button
+              type="button"
+              className="button mr-2"
+              onClick={setTestValue}
+            >
+              Load Test value
+            </button>
+            <button
+              type="button"
+              className="button mr-2"
+              onClick={setRealValue}
+            >
+              Load Real value
+            </button>
+            <button type="submit" className="button is-primary">
+              Do the truffle shuffle
+            </button>
           </div>
           <div className="column">
             <div className="field">
               <label className="label">Answer</label>
               <div className="control">
-                <input type="text" id={`answer${id}`} value={answer} readOnly className="input" />
+                <input
+                  type="text"
+                  id={`answer${id}`}
+                  value={answer}
+                  readOnly
+                  className="input"
+                />
               </div>
             </div>
 
             <div className="field">
               <label className="label">Logs</label>
-              <div className="control" style={{maxHeight:200, overflow: 'auto'}}>
+              <div
+                className="control"
+                style={{ maxHeight: 200, overflow: 'auto' }}
+              >
                 <pre>{logs}</pre>
               </div>
             </div>
@@ -281,4 +311,4 @@ export const Day01Puzzle1 = () => {
       </form>
     </div>
   );
-}
+};
