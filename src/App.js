@@ -1,8 +1,21 @@
+import { useState } from 'react';
 import Navbar from './components/navbar';
-import { Day01Puzzle1 } from './2020/day01/puzzle1';
-import { Day01Puzzle2 } from './2020/day01/puzzle2';
+import { Day1 } from './2020/day1/day1';
+
+const days = [1, 2];
+
+const daysComponents = {
+  Day1,
+};
+
+const selectDayComponent = (day) => {
+  const DayComponent = daysComponents[`Day${day}`];
+  return <DayComponent />;
+};
 
 function App() {
+  const [selectedDay, setSelectedDay] = useState(1);
+
   return (
     <div>
       <Navbar />
@@ -10,24 +23,17 @@ function App() {
       <main className="p-4">
         <div className="tabs">
           <ul>
-            <li className="is-active">
-              <a href="https://adventofcode.com">Day 1</a>
-            </li>
+            {days.map((day) => (
+              <li className={day === selectedDay ? 'is-active' : ''} key={day}>
+                <a href="#" onClick={() => setSelectedDay(day)}>
+                  Day {day}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
 
-        <p>
-          For more information about the challenge, please visit:{' '}
-          <a href="https://adventofcode.com/2020/day/1">
-            https://adventofcode.com/2020/day/1
-          </a>
-        </p>
-
-        <Day01Puzzle1 />
-
-        <hr />
-
-        <Day01Puzzle2 />
+        {selectDayComponent(selectedDay)}
       </main>
     </div>
   );
