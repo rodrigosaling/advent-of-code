@@ -6,6 +6,24 @@ import { realValue } from './input';
 const id = '01';
 const log = initLog(id);
 
+export const searchTwoValuesThatSum2020 = (input) => {
+  const numberOfLines = input.length;
+
+  log('Looking for TWO numbers that sum is equal to 2020.');
+  for (let i = 0; i < numberOfLines - 1; i++) {
+    const firstValue = parseInt(input[i]);
+    for (let j = i + 1; j < numberOfLines; j++) {
+      const secondValue = parseInt(input[j]);
+      if (firstValue + secondValue === 2020) {
+        log(`Found the values: ${firstValue} ${secondValue}`);
+        const result = firstValue * secondValue;
+        log(`Returning the multiplication result: ${result}`);
+        return result;
+      }
+    }
+  }
+};
+
 export const Puzzle1 = () => {
   const [inputValue, setInputValue] = useState(realValue);
   const [answer, setAnswer] = useState('');
@@ -13,21 +31,8 @@ export const Puzzle1 = () => {
   const doTheTruffleShuffle = (event) => {
     event.preventDefault();
     const input = readLinesFrom(id);
-    const numberOfLines = input.length;
 
-    log('Looking for TWO numbers that sum is equal to 2020.');
-    loop: for (let i = 0; i < numberOfLines - 1; i++) {
-      const firstValue = parseInt(input[i]);
-      for (let j = i + 1; j < numberOfLines; j++) {
-        const secondValue = parseInt(input[j]);
-        if (firstValue + secondValue === 2020) {
-          log(`Found the values: ${firstValue} ${secondValue}`);
-          log('Posting the answer.');
-          setAnswer(firstValue * secondValue);
-          break loop;
-        }
-      }
-    }
+    setAnswer(searchTwoValuesThatSum2020(input));
 
     log('----- End -----');
   };

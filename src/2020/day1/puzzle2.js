@@ -6,6 +6,27 @@ import { realValue } from './input';
 const id = '02';
 const log = initLog(id);
 
+export const searchThreeValuesThatSum2020 = (input) => {
+  const numberOfLines = input.length;
+
+  log('Looking for THREE numbers that sum is equal to 2020.');
+  for (let i = 0; i < numberOfLines - 2; i++) {
+    const firstValue = parseInt(input[i]);
+    for (let j = i + 1; j < numberOfLines - 1; j++) {
+      const secondValue = parseInt(input[j]);
+      for (let k = j + 1; k < numberOfLines; k++) {
+        const thirdValue = parseInt(input[k]);
+        if (firstValue + secondValue + thirdValue === 2020) {
+          log(`Found the values: ${firstValue} ${secondValue} ${thirdValue}`);
+          const result = firstValue * secondValue * thirdValue;
+          log(`Returning the multiplication result: ${result}`);
+          return result;
+        }
+      }
+    }
+  }
+};
+
 export const Puzzle2 = () => {
   const [inputValue, setInputValue] = useState(realValue);
   const [answer, setAnswer] = useState('');
@@ -13,24 +34,8 @@ export const Puzzle2 = () => {
   const doTheTruffleShuffle = (event) => {
     event.preventDefault();
     const input = readLinesFrom(id);
-    const numberOfLines = input.length;
 
-    log('Looking for THREE numbers that sum is equal to 2020.');
-    loop: for (let i = 0; i < numberOfLines - 2; i++) {
-      const firstValue = parseInt(input[i]);
-      for (let j = i + 1; j < numberOfLines - 1; j++) {
-        const secondValue = parseInt(input[j]);
-        for (let k = j + 1; k < numberOfLines; k++) {
-          const thirdValue = parseInt(input[k]);
-          if (firstValue + secondValue + thirdValue === 2020) {
-            log(`Found the values: ${firstValue} ${secondValue} ${thirdValue}`);
-            log('Posting the answer.');
-            setAnswer(firstValue * secondValue * thirdValue);
-            break loop;
-          }
-        }
-      }
-    }
+    setAnswer(searchThreeValuesThatSum2020(input));
 
     log('----- End -----');
   };
