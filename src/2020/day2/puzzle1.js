@@ -29,6 +29,10 @@ export const countNumberOfTimesCharInString = (char, string) => {
   return times;
 };
 
+export const checkIfNumberIsWithinRage = (number, range) => {
+  return range.min <= number && number <= range.max;
+};
+
 export const Puzzle1 = () => {
   const [inputValue, setInputValue] = useState(realValue);
   const [answer, setAnswer] = useState('');

@@ -1,4 +1,5 @@
 import {
+  checkIfNumberIsWithinRage,
   countNumberOfTimesCharInString,
   transformStringIntoObject,
 } from './puzzle1';
@@ -44,5 +45,10 @@ describe('Puzzle 1 from Day 2', () => {
     expect(countNumberOfTimesCharInString('a', 'ccccc')).toEqual(0);
   });
 
-  it('should test if a number is between other two numbers', () => {});
+  it('should test if a number is between other two numbers', () => {
+    expect(checkIfNumberIsWithinRage(3, { min: 1, max: 4 })).toBeTruthy();
+    expect(checkIfNumberIsWithinRage(3, { min: 3, max: 3 })).toBeTruthy();
+    expect(checkIfNumberIsWithinRage(3, { min: 4, max: 6 })).toBeFalsy();
+    expect(checkIfNumberIsWithinRage(3, { min: 1, max: 2 })).toBeFalsy();
+  });
 });
