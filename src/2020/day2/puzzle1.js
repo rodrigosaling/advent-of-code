@@ -43,10 +43,10 @@ export const countNumberOfValidPasswords = (input) => {
       info.password
     );
     if (checkIfNumberIsWithinRage(numberAppearances, info.range)) {
-      log(`Valid password: ${line}`);
+      log(`Valid password: ${line} ✅`);
       numberValidPasswords += 1;
     } else {
-      log(`Not Valid password: ${line}`);
+      log(`Not Valid password: ${line} 🚫`);
     }
   }
   return numberValidPasswords;
