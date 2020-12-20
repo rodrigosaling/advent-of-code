@@ -26,7 +26,7 @@ describe('Puzzle 1 from Day 2', () => {
       })
     );
 
-    expect(transformStringIntoObject(testValueAsArray[0])).toEqual(
+    expect(transformStringIntoObject(testValueAsArray[2])).toEqual(
       expect.objectContaining({
         range: { min: 2, max: 9 },
         char: 'c',
