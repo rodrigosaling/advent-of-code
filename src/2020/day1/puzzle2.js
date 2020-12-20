@@ -2,11 +2,12 @@ import { useState } from 'react';
 import { readLinesFrom } from '../../utils/read-lines-from';
 import { initLog } from '../../utils/log';
 import { realValue } from './input';
+import { View } from '../../components/puzzle.view';
 
 const id = '02';
 const log = initLog(id);
 
-export const searchThreeValuesThatSum2020 = (input) => {
+export const searchThreeNumbersThatSum2020 = (input) => {
   const numberOfLines = input.length;
 
   log('Looking for THREE numbers that sum is equal to 2020.');
@@ -18,13 +19,17 @@ export const searchThreeValuesThatSum2020 = (input) => {
         const thirdValue = parseInt(input[k]);
         if (firstValue + secondValue + thirdValue === 2020) {
           log(`Found the values: ${firstValue} ${secondValue} ${thirdValue}`);
-          const result = firstValue * secondValue * thirdValue;
-          log(`Returning the multiplication result: ${result}`);
-          return result;
+          return { firstValue, secondValue, thirdValue };
         }
       }
     }
   }
+};
+
+export const multiplyThreeValues = (val1, val2, val3) => {
+  const result = val1 * val2 * val3;
+  log(`Returning the multiplication result: ${result}`);
+  return result;
 };
 
 export const Puzzle2 = () => {
@@ -35,61 +40,25 @@ export const Puzzle2 = () => {
     event.preventDefault();
     const input = readLinesFrom(id);
 
-    setAnswer(searchThreeValuesThatSum2020(input));
+    const {
+      firstValue,
+      secondValue,
+      thirdValue,
+    } = searchThreeNumbersThatSum2020(input);
+    const result = multiplyThreeValues(firstValue, secondValue, thirdValue);
+    setAnswer(result);
 
     log('----- End -----');
   };
 
   return (
-    <div>
-      <h3 className="is-size-3">Puzzle 2</h3>
-      <form onSubmit={doTheTruffleShuffle}>
-        <div className="columns">
-          <div className="column">
-            <div className="field">
-              <label className="label">Input</label>
-              <div className="control">
-                <textarea
-                  rows="10"
-                  value={inputValue}
-                  onChange={({ target }) => setInputValue(target.value)}
-                  id={`input${id}`}
-                  required
-                  className="textarea is-small"
-                />
-              </div>
-            </div>
-
-            <button type="submit" className="button is-primary">
-              Do the truffle shuffle
-            </button>
-          </div>
-          <div className="column">
-            <div className="field">
-              <label className="label">Answer</label>
-              <div className="control">
-                <input
-                  type="text"
-                  id={`answer${id}`}
-                  value={answer}
-                  readOnly
-                  className="input"
-                />
-              </div>
-            </div>
-
-            <div className="field">
-              <label className="label">Logs</label>
-              <div
-                className="control"
-                style={{ maxHeight: 200, overflow: 'auto' }}
-              >
-                <pre id={`logs${id}`} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
+    <View
+      title="Puzzle 2"
+      id={id}
+      onSubmit={doTheTruffleShuffle}
+      answer={answer}
+      inputValue={inputValue}
+      setInputValue={setInputValue}
+    />
   );
 };

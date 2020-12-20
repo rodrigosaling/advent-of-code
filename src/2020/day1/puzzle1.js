@@ -27,7 +27,7 @@ export const searchTwoNumbersThatSum2020 = (input) => {
 export const multiplyTwoValues = (val1, val2) => {
   const result = val1 * val2;
   log(`Returning the multiplication result: ${result}`);
-  return val1 * val2;
+  return result;
 };
 
 export const Puzzle1 = () => {
