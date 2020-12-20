@@ -24,6 +24,7 @@ export const searchThreeNumbersThatSum2020 = (input) => {
       }
     }
   }
+  return null;
 };
 
 export const multiplyThreeValues = (val1, val2, val3) => {
