@@ -60,7 +60,11 @@ describe('Puzzle 2 from Day 2', () => {
     expect(countNumberOfValidPasswords(testValueAsArray)).toEqual(1);
   });
 
-  it('should not be 250 as the number of valid passwords from a list', () => {
+  it('should not be 250 as the number of valid passwords from the real list', () => {
     expect(countNumberOfValidPasswords(realValueAsArray)).not.toEqual(250);
+  });
+
+  it('should return the correct number of valid passwords from the real list', () => {
+    expect(countNumberOfValidPasswords(realValueAsArray)).toEqual(497);
   });
 });

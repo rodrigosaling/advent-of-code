@@ -5,6 +5,7 @@ import {
   transformStringIntoObject,
 } from './puzzle1';
 import { testValue } from './input-test';
+import { realValue } from './input';
 
 jest.mock('../../utils/log', () => ({
   initLog: () => jest.fn(),
@@ -12,6 +13,7 @@ jest.mock('../../utils/log', () => ({
 }));
 
 const testValueAsArray = testValue.split('\n');
+const realValueAsArray = realValue.split('\n');
 
 describe('Puzzle 1 from Day 2', () => {
   it('should receive a string and return a structured object', () => {
@@ -55,5 +57,9 @@ describe('Puzzle 1 from Day 2', () => {
 
   it('should return the correct number of valid passwords from a list', () => {
     expect(countNumberOfValidPasswords(testValueAsArray)).toEqual(2);
+  });
+
+  it('should return the correct number of valid passwords from the real input list', () => {
+    expect(countNumberOfValidPasswords(realValueAsArray)).toEqual(528);
   });
 });
