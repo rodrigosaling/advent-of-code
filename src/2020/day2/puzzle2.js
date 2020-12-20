@@ -11,9 +11,12 @@ const log = initLog(id);
 export const checkIfCharIsAtPositions = ({
   char,
   password,
-  range: { min: exists, max: notExists },
+  range: { min: position1, max: position2 },
 }) => {
-  return char === password[exists - 1] && char !== password[notExists - 1];
+  return (
+    (char === password[position1 - 1] && char !== password[position2 - 1]) ||
+    (char !== password[position1 - 1] && char === password[position2 - 1])
+  );
 };
 
 export const countNumberOfValidPasswords = (input) => {
