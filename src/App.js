@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import Navbar from './components/navbar';
 import { Day1 } from './2020/day1/day1';
+import { Day2 } from './2020/day2/day2';
 
-const days = [1];
+const days = [1, 2];
 
 const daysComponents = {
   Day1,
+  Day2,
 };
 
 const selectDayComponent = (day) => {
