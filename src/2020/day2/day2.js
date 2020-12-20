@@ -20,9 +20,13 @@ export const Day2 = () => (
 
     <h2 className="is-size-2">Notes:</h2>
 
-    <p>
+    <p className="mb-4">
       I will try a TDD-ish approach to this puzzle. Write some tests before the
       actual code.
+    </p>
+    <p>
+      Followed TDD a couple of times then ended creating the code first and then
+      the tests.
     </p>
   </>
 );

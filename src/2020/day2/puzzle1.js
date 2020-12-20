@@ -33,6 +33,25 @@ export const checkIfNumberIsWithinRage = (number, range) => {
   return range.min <= number && number <= range.max;
 };
 
+export const countNumberOfValidPasswords = (input) => {
+  let numberValidPasswords = 0;
+  log('Iterating list');
+  for (const line of input) {
+    const info = transformStringIntoObject(line);
+    const numberAppearances = countNumberOfTimesCharInString(
+      info.char,
+      info.password
+    );
+    if (checkIfNumberIsWithinRage(numberAppearances, info.range)) {
+      log(`Valid password: ${line}`);
+      numberValidPasswords += 1;
+    } else {
+      log(`Not Valid password: ${line}`);
+    }
+  }
+  return numberValidPasswords;
+};
+
 export const Puzzle1 = () => {
   const [inputValue, setInputValue] = useState(realValue);
   const [answer, setAnswer] = useState('');
@@ -41,7 +60,7 @@ export const Puzzle1 = () => {
     event.preventDefault();
     const input = readLinesFrom(id);
 
-    const result = '';
+    const result = countNumberOfValidPasswords(input);
     setAnswer(result);
 
     log('----- End -----');

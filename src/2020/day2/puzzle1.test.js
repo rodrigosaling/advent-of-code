@@ -1,6 +1,7 @@
 import {
   checkIfNumberIsWithinRage,
   countNumberOfTimesCharInString,
+  countNumberOfValidPasswords,
   transformStringIntoObject,
 } from './puzzle1';
 import { testValue } from './input-test';
@@ -50,5 +51,9 @@ describe('Puzzle 1 from Day 2', () => {
     expect(checkIfNumberIsWithinRage(3, { min: 3, max: 3 })).toBeTruthy();
     expect(checkIfNumberIsWithinRage(3, { min: 4, max: 6 })).toBeFalsy();
     expect(checkIfNumberIsWithinRage(3, { min: 1, max: 2 })).toBeFalsy();
+  });
+
+  it('should return the correct number of valid passwords from a list', () => {
+    expect(countNumberOfValidPasswords(testValueAsArray)).toEqual(2);
   });
 });
