@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Navbar from './components/navbar';
 import { Day1 } from './2020/day1/day1';
 
-const days = [1, 2];
+const days = [1];
 
 const daysComponents = {
   Day1,

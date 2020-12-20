@@ -1,4 +1,4 @@
-const testValue = `1721
+export const testValue = `1721
 979
 366
 299
