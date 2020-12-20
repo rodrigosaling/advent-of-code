@@ -1,4 +1,4 @@
-import { searchTwoNumbersThatSum2020, multiplyTwoValues } from './puzzle1';
+import { transformStringIntoObject } from './puzzle1';
 import { testValue } from './input-test';
 
 jest.mock('../../utils/log', () => ({
@@ -8,8 +8,32 @@ jest.mock('../../utils/log', () => ({
 
 const testValueAsArray = testValue.split('\n');
 
-describe('The Puzzle 1 from Day 2', () => {
-  it('should receive a string and return a structured object', () => {});
+describe('Puzzle 1 from Day 2', () => {
+  it('should receive a string and return a structured object', () => {
+    expect(transformStringIntoObject(testValueAsArray[0])).toEqual(
+      expect.objectContaining({
+        range: { min: 1, max: 3 },
+        char: 'a',
+        password: 'abcde',
+      })
+    );
+
+    expect(transformStringIntoObject(testValueAsArray[1])).toEqual(
+      expect.objectContaining({
+        range: { min: 1, max: 3 },
+        char: 'b',
+        password: 'cdefg',
+      })
+    );
+
+    expect(transformStringIntoObject(testValueAsArray[0])).toEqual(
+      expect.objectContaining({
+        range: { min: 2, max: 9 },
+        char: 'c',
+        password: 'ccccccccc',
+      })
+    );
+  });
 
   it('should return the number of times a char appears in a string', () => {});
 
