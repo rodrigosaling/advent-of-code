@@ -69,7 +69,7 @@ View.propTypes = {
   inputValue: PropTypes.string,
   setInputValue: PropTypes.func.isRequired,
   id: PropTypes.string.isRequired,
-  answer: PropTypes.string,
+  answer: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 View.defaultProps = {

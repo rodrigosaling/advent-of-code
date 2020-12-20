@@ -1,5 +1,5 @@
 import { searchThreeNumbersThatSum2020, multiplyThreeValues } from './puzzle2';
-import { testValue } from './test-input';
+import { testValue } from './input-test';
 
 jest.mock('../../utils/log', () => ({
   initLog: () => jest.fn(),
