@@ -8,8 +8,18 @@ const id = '01';
 const log = initLog(id);
 
 export const transformStringIntoObject = (string) => {
-  // const sides = string.split(': ');
-  // return
+  const object = {};
+
+  const sides = string.split(': ');
+  object.password = sides[1];
+
+  const validation = sides[0].split(' ');
+  object.char = validation[1];
+
+  const range = validation[0].split('-');
+  object.range = { min: parseInt(range[0]), max: parseInt(range[1]) };
+
+  return object;
 };
 
 export const Puzzle1 = () => {
