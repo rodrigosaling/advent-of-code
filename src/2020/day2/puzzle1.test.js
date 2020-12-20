@@ -1,4 +1,7 @@
-import { transformStringIntoObject } from './puzzle1';
+import {
+  countNumberOfTimesCharInString,
+  transformStringIntoObject,
+} from './puzzle1';
 import { testValue } from './input-test';
 
 jest.mock('../../utils/log', () => ({
@@ -35,7 +38,11 @@ describe('Puzzle 1 from Day 2', () => {
     );
   });
 
-  it('should return the number of times a char appears in a string', () => {});
+  it('should return the number of times a char appears in a string', () => {
+    expect(countNumberOfTimesCharInString('a', 'bbbabbb')).toEqual(1);
+    expect(countNumberOfTimesCharInString('a', 'aaa')).toEqual(3);
+    expect(countNumberOfTimesCharInString('a', 'ccccc')).toEqual(0);
+  });
 
   it('should test if a number is between other two numbers', () => {});
 });

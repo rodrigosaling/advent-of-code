@@ -19,6 +19,16 @@ export const transformStringIntoObject = (string) => {
   };
 };
 
+export const countNumberOfTimesCharInString = (char, string) => {
+  let times = 0;
+  for (const currentChar of string) {
+    if (char === currentChar) {
+      times += 1;
+    }
+  }
+  return times;
+};
+
 export const Puzzle1 = () => {
   const [inputValue, setInputValue] = useState(realValue);
   const [answer, setAnswer] = useState('');
