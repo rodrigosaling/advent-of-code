@@ -1,5 +1,5 @@
 import { Puzzle1 } from './puzzle1';
-// import { Puzzle2 } from './puzzle2';
+import { Puzzle2 } from './puzzle2';
 
 export const Day2 = () => (
   <>
@@ -14,7 +14,7 @@ export const Day2 = () => (
 
     <hr />
 
-    {/* <Puzzle2 /> */}
+    <Puzzle2 />
 
     <hr />
 
