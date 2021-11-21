@@ -4,13 +4,14 @@ export const makeInputWideEnough = (input) => {
   const inputLines = input.split('\n');
 
   // +1 because of the start position
-  const estimatedNewXAxis =
-    (inputLines.length * moveX + 1) / inputLines[0].length;
+  const howManyCopies = Math.ceil(
+    (inputLines.length * moveX + 1) / inputLines[0].length
+  );
 
   const matrix = [];
 
   for (let i = 0; i < inputLines.length; i += 1) {
-    matrix[i] = inputLines[i].repeat(estimatedNewXAxis);
+    matrix[i] = inputLines[i].repeat(howManyCopies);
   }
 
   return matrix;
