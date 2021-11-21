@@ -4,20 +4,14 @@ import {
   countNumberOfValidPasswords,
   transformStringIntoObject,
 } from './puzzle1';
-import { testValue } from './input-test';
-import { realValue } from './input';
+import { testInput, realInput } from './inputs';
 
-jest.mock('../../utils/log', () => ({
-  initLog: () => jest.fn(),
-  // initLog: () => (text) => console.log(text),
-}));
-
-const testValueAsArray = testValue.split('\n');
-const realValueAsArray = realValue.split('\n');
+const testInputAsArray = testInput.split('\n');
+const realInputAsArray = realInput.split('\n');
 
 describe('Puzzle 1 from Day 2', () => {
   it('should receive a string and return a structured object', () => {
-    expect(transformStringIntoObject(testValueAsArray[0])).toEqual(
+    expect(transformStringIntoObject(testInputAsArray[0])).toEqual(
       expect.objectContaining({
         range: { min: 1, max: 3 },
         char: 'a',
@@ -25,7 +19,7 @@ describe('Puzzle 1 from Day 2', () => {
       })
     );
 
-    expect(transformStringIntoObject(testValueAsArray[1])).toEqual(
+    expect(transformStringIntoObject(testInputAsArray[1])).toEqual(
       expect.objectContaining({
         range: { min: 1, max: 3 },
         char: 'b',
@@ -33,7 +27,7 @@ describe('Puzzle 1 from Day 2', () => {
       })
     );
 
-    expect(transformStringIntoObject(testValueAsArray[2])).toEqual(
+    expect(transformStringIntoObject(testInputAsArray[2])).toEqual(
       expect.objectContaining({
         range: { min: 2, max: 9 },
         char: 'c',
@@ -56,10 +50,10 @@ describe('Puzzle 1 from Day 2', () => {
   });
 
   it('should return the correct number of valid passwords from a list', () => {
-    expect(countNumberOfValidPasswords(testValueAsArray)).toEqual(2);
+    expect(countNumberOfValidPasswords(testInputAsArray)).toEqual(2);
   });
 
   it('should return the correct number of valid passwords from the real input list', () => {
-    expect(countNumberOfValidPasswords(realValueAsArray)).toEqual(528);
+    expect(countNumberOfValidPasswords(realInputAsArray)).toEqual(528);
   });
 });
