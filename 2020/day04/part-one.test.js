@@ -1,5 +1,6 @@
 import { realInput, requiredFields, testInput } from './inputs';
 import {
+  countValidPassports,
   getPassportFields,
   isPassportValid,
   makeArrayOfPassports,
@@ -52,5 +53,10 @@ describe('Day 3 part one', () => {
 
   describe('using a custom input', () => {});
 
-  describe('using realInput', () => {});
+  describe('using realInput', () => {
+    it('SOLUTION: should count the number of valid passports and be equal to 230', () => {
+      const passports = makeArrayOfPassports(realInput);
+      expect(countValidPassports(passports, requiredFields)).toEqual(230);
+    });
+  });
 });

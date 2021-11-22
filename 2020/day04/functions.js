@@ -25,3 +25,12 @@ export const isPassportValid = (passport, requiredFields) => {
   }
   return requiredFieldsCheck.every((field) => field.found);
 };
+
+export const countValidPassports = (passports, requiredFields) => {
+  let count = 0;
+  for (let index = 0; index < passports.length; index++) {
+    const passport = passports[index];
+    if (isPassportValid(passport, requiredFields)) count++;
+  }
+  return count;
+};
