@@ -2,16 +2,12 @@ import {
   invalidPassports,
   realInput,
   requiredFields,
-  testInput,
   validPassports,
 } from './inputs';
 import {
   convertHgtToNumber,
-  countValidPassports,
   countValidPassportsAndFields,
-  getPassportFields,
   isFieldValid,
-  isPassportValid,
   makeArrayOfPassports,
 } from './functions';
 
