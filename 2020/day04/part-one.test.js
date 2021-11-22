@@ -1,5 +1,9 @@
-import { realInput, testInput } from './inputs';
-import { getPassportFields, makeArrayOfPassports } from './functions';
+import { realInput, requiredFields, testInput } from './inputs';
+import {
+  getPassportFields,
+  isPassportValid,
+  makeArrayOfPassports,
+} from './functions';
 
 describe('Day 3 part one', () => {
   describe('using testInput', () => {
@@ -11,6 +15,38 @@ describe('Day 3 part one', () => {
       const passports = makeArrayOfPassports(testInput);
       const fields = getPassportFields(passports[0]);
       expect(fields.length).toEqual(8);
+    });
+
+    it('should correctly set the required fields without the "cid" field', () => {
+      expect(requiredFields).toEqual([
+        'byr',
+        'iyr',
+        'eyr',
+        'hgt',
+        'hcl',
+        'ecl',
+        'pid',
+      ]);
+    });
+
+    it('should set the first passport as valid', () => {
+      const passports = makeArrayOfPassports(testInput);
+      expect(isPassportValid(passports[0], requiredFields)).toBeTruthy();
+    });
+
+    it('should set the second passport as invalid', () => {
+      const passports = makeArrayOfPassports(testInput);
+      expect(isPassportValid(passports[1], requiredFields)).toBeFalsy();
+    });
+
+    it('should set the third passport as valid', () => {
+      const passports = makeArrayOfPassports(testInput);
+      expect(isPassportValid(passports[2], requiredFields)).toBeTruthy();
+    });
+
+    it('should set the fourth passport as invalid', () => {
+      const passports = makeArrayOfPassports(testInput);
+      expect(isPassportValid(passports[3], requiredFields)).toBeFalsy();
     });
   });
 
