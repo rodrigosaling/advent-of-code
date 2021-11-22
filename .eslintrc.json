@@ -13,6 +13,7 @@
   "rules": {
     "prettier/prettier": "error",
     "no-console": "off",
+    "no-plusplus": "off",
     "comma-dangle": [
       // https://github.com/wantedly/frolint/issues/31#issuecomment-664020355
       "error",
