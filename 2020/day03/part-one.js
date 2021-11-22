@@ -1,6 +1,4 @@
-export const makeInputWideEnough = (input) => {
-  const moveX = 3;
-
+export const makeInputWideEnough = (input, moveX = 3) => {
   const inputLines = input.split('\n');
 
   // +1 because of the start position
@@ -19,9 +17,17 @@ export const makeInputWideEnough = (input) => {
 
 export const countTheTrees = (arrayOfStrings, moveX, moveY) => {
   let treesFound = 0;
-  for (let lineIndex = 0; lineIndex < arrayOfStrings.length; lineIndex += 1) {
+  let xPosition = 0;
+  for (
+    let lineIndex = 0;
+    lineIndex < arrayOfStrings.length;
+    lineIndex += moveY
+  ) {
     const line = arrayOfStrings[lineIndex + moveY];
-    if (line && line[(lineIndex + 1) * moveX] === '#') treesFound += 1;
+    xPosition += moveX;
+    if (line && line[xPosition] === '#') {
+      treesFound += 1;
+    }
   }
   return treesFound;
 };
