@@ -6,7 +6,7 @@ import {
   makeArrayOfPassports,
 } from './functions';
 
-describe('Day 3 part one', () => {
+describe('Day 4 part one', () => {
   describe('using testInput', () => {
     it('should return an array with 4 passports', () => {
       expect(makeArrayOfPassports(testInput).length).toEqual(4);

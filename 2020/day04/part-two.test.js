@@ -11,7 +11,7 @@ import {
   makeArrayOfPassports,
 } from './functions';
 
-describe('Day 3 part two', () => {
+describe('Day 4 part two', () => {
   describe('using testInput', () => {
     it('should return true if byr is 2002', () => {
       expect(isFieldValid('byr', '2002')).toBeTruthy();
