@@ -51,3 +51,17 @@ export const getHighestSeatID = (listBoardingPasses) => {
     return Math.max(previous, seatID);
   }, 0);
 };
+
+export const getMySeatID = (listBoardingPasses) => {
+  const boardingPassesArray = listBoardingPasses.split('\n');
+  const seatIDArray = boardingPassesArray.map((boardingPass) =>
+    parseInt(getSeatID(boardingPass), 10)
+  );
+  const sortedSeatIDArray = seatIDArray.sort((a, b) => a - b);
+  // find a gap in the array
+  return (
+    sortedSeatIDArray.find(
+      (element, index, array) => element + 1 !== array[index + 1]
+    ) + 1
+  );
+};
