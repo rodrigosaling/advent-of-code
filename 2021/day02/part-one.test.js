@@ -13,7 +13,7 @@ describe('2021 Day 2 part one', () => {
       expect(returnMultipliedPosition(realInput)).toBeGreaterThan(0);
     });
 
-    it('SOLUTION: should return 150 as multiplication result', () => {
+    it('SOLUTION: should return 1636725 as multiplication result', () => {
       expect(returnMultipliedPosition(realInput)).toBe(1636725);
     });
   });

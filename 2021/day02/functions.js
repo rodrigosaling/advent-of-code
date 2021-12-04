@@ -26,3 +26,31 @@ export const returnMultipliedPosition = (input) => {
 
   return horizontal * depth;
 };
+
+export const returnMultipliedAimPosition = (input) => {
+  const inputArray = fromInputToArray(input);
+  let horizontal = 0;
+  let depth = 0;
+  let aim = 0;
+
+  for (let index = 0; index < inputArray.length; index++) {
+    const line = inputArray[index];
+    const [instruction, value] = line.split(' ');
+    switch (instruction) {
+      case 'forward':
+        horizontal += parseInt(value, 10);
+        depth += aim * parseInt(value, 10);
+        break;
+      case 'down':
+        aim += parseInt(value, 10);
+        break;
+      case 'up':
+        aim -= parseInt(value, 10);
+        break;
+      default:
+        break;
+    }
+  }
+
+  return horizontal * depth;
+};
