@@ -1,9 +1,9 @@
 import { returnPowerConsumption } from './functions';
 import { realInput, testInput } from './inputs';
 
-describe('2021 Day 2 part one', () => {
+describe('2021 Day 3 part one', () => {
   describe('using testInput', () => {
-    it('should return 150 as multiplication result', () => {
+    it('should return 198 as multiplication result', () => {
       expect(returnPowerConsumption(testInput)).toBe(198);
     });
   });
