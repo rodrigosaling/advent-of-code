@@ -18,12 +18,29 @@ func main() {
 
 	filename := os.Args[1]
 
-	file, err := os.Open(filename)
+	leftList, rightList, err := readInput(filename)
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
-	// defer ensures that the file is closed when the main function returns
+
+	total := theLogic(leftList, rightList)
+
+	fmt.Println("Total difference: ", total)
+}
+
+func theLogic(leftList, rightList []int) int64 {
+	sort.Ints(leftList)
+	sort.Ints(rightList)
+
+	return calculateTotalDifference(leftList, rightList)
+}
+
+func readInput(filename string) ([]int, []int, error) {
+	file, err := os.Open(filename)
+	if err != nil {
+		return nil, nil, err
+	}
 	defer file.Close()
 
 	scanner := bufio.NewScanner(file)
@@ -39,14 +56,14 @@ func main() {
 		rightList = append(rightList, rightNumber)
 	}
 
-	// err equals nil if it's EOF and there's no error
 	if err := scanner.Err(); err != nil {
-		fmt.Println(err)
+		return nil, nil, err
 	}
 
-	sort.Ints(leftList)
-	sort.Ints(rightList)
+	return leftList, rightList, nil
+}
 
+func calculateTotalDifference(leftList, rightList []int) int64 {
 	var total int64
 
 	for i := 0; i < len(leftList); i++ {
@@ -54,5 +71,5 @@ func main() {
 		total += int64(difference)
 	}
 
-	fmt.Println("Total difference: ", total)
+	return total
 }

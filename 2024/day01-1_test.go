@@ -9,18 +9,13 @@ func TestMain(t *testing.T) {
 	main()
 }
 
-func TestCalculateTotal(t *testing.T) {
-	// Test that the total is calculated correctly
-	leftList := []int{1, 2, 3}
-	rightList := []int{4, 5, 6}
-	var total int64
+func TestTheLogic(t *testing.T) {
+	leftList := []int{3, 4, 2, 1, 3, 3}
+	rightList := []int{4, 3, 5, 3, 9, 3}
 
-	for i := 0; i < len(leftList); i++ {
-		difference := leftList[i] - rightList[i]
-		total = total + int64(difference)
-	}
+	total := theLogic(leftList, rightList)
 
-	if total != -9 {
-		t.Errorf("expected total to be -9, got %d", total)
+	if total != 11 {
+		t.Errorf("expected total to be 11, got %d", total)
 	}
 }
